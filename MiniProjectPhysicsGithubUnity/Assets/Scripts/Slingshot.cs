@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Slingshot : MonoBehaviour
+{
+    public GameObject target;
+    public float force;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 r = transform.position - target.transform.position;
+        GetComponent<Rigidbody>().AddForce(-r * Time.deltaTime * force, ForceMode.Impulse);
+    }
+}
